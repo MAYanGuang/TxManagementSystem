@@ -68,12 +68,14 @@ public class CustomRealm extends AuthorizingRealm {
         System.out.println("------------"+password);
 
         //通过用户名去数据库获取用户信息
-        User user = userService.selectByName(userName);
-        System.out.println("999999"+user.toString());
-
-        if (null == user) {
+        User user = null;
+        try {
+            user = userService.selectByName(userName);
+        } catch (NullPointerException e) {
             throw new UnknownAccountException();
         }
+
+
         if (!password.equals(user.getPassword())) {
             System.out.println("5555555555");
             throw new IncorrectCredentialsException();

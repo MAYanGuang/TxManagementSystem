@@ -67,8 +67,6 @@ public class LoginController {
         }
     }
 
-
-
     @RequestMapping(value = "/login")
     public int Login(String name,
                      String pwd,
