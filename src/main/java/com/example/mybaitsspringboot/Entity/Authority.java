@@ -1,6 +1,8 @@
 package com.example.mybaitsspringboot.Entity;
 
-import lombok.Data;
+
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
  * @author: MA
@@ -8,8 +10,25 @@ import lombok.Data;
  * <p>
  * 权限表
  */
-@Data
+@TableName
 public class Authority {
+    @TableId
     private int authorityId;
     private String authorityKind;
+
+    public int getAuthorityId() {
+        return authorityId;
+    }
+
+    public void setAuthorityId(int authorityId) {
+        this.authorityId = authorityId;
+    }
+
+    public String getAuthorityKind() {
+        return authorityKind;
+    }
+
+    public void setAuthorityKind(String authorityKind) {
+        this.authorityKind = authorityKind;
+    }
 }

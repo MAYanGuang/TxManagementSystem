@@ -1,11 +1,5 @@
 package com.example.mybaitsspringboot.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-
-import javax.annotation.Generated;
 
 /**
  * @author: MA
@@ -20,15 +14,48 @@ import javax.annotation.Generated;
 //默认无参所以不需要这个无参构造注释
 //@NoArgsConstructor
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import org.springframework.data.relational.core.mapping.Table;
+
 /**
- *   用户表 存放用户账号及用户个人信息
+ * 用户表 存放用户账号及用户个人信息
+ *
  * @author ma
  */
-@Data
+//@Data
+@TableName
 public class User {
 
+    @TableId
     private int id;
+
     private String user_name;
+
     private String password;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

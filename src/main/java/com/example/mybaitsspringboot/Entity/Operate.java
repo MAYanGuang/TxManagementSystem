@@ -1,6 +1,8 @@
 package com.example.mybaitsspringboot.Entity;
 
-import lombok.Data;
+
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
  * @author: MA
@@ -13,10 +15,43 @@ import lombok.Data;
  * 操作编码
  * 拦截Url前缀
  */
-@Data
+@TableName
 public class Operate {
+    @TableId
     private int operateId;
     private String operateName;
     private String operateCode;
     private String interceptUrl;
+
+    public int getOperateId() {
+        return operateId;
+    }
+
+    public void setOperateId(int operateId) {
+        this.operateId = operateId;
+    }
+
+    public String getOperateName() {
+        return operateName;
+    }
+
+    public void setOperateName(String operateName) {
+        this.operateName = operateName;
+    }
+
+    public String getOperateCode() {
+        return operateCode;
+    }
+
+    public void setOperateCode(String operateCode) {
+        this.operateCode = operateCode;
+    }
+
+    public String getInterceptUrl() {
+        return interceptUrl;
+    }
+
+    public void setInterceptUrl(String interceptUrl) {
+        this.interceptUrl = interceptUrl;
+    }
 }
