@@ -16,10 +16,10 @@
 - Maven3.0+
 
 # 项目初期功能实现图
-<img src="F:\SpringProject\MybaitsSpringBoot\images\2.png">
+> ![images/2.png](images/2.png)
 
 #项目初期数据库结构关系
-<img src="F:\SpringProject\MybaitsSpringBoot\images\1.png" >
+> ![images/2.png](images/1.png)
 
 
 
