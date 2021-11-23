@@ -23,9 +23,10 @@
     <div class="nano">
         <div class="nano-content">
             <ul>
-                <div class="logo">
+                <div class="logo" >
                     <!-- <img src="assets/images/logo.png" alt="" /> -->
-                    <span>欢迎您!</span></a></div>
+                    <!--遍历后端返回的一个数据的数组 得到当前登录的用户名-->
+                    <span v-for="v in arr">欢迎{{v}}回来!</span></a></div>
                 <li class="label">菜单栏</li>
                 <li>
                     <ul>
@@ -91,8 +92,26 @@
 
 <!-- scripit init-->
 <script src="/js/dashboard2.js"></script>
+<!--引入vue框架-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!--引入axios框架-->
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="/static/js/welcomeName.js"></script>
+<script>
+    let v = new Vue({
+        el:".logo",
+        data:{
+            arr:[],
+        },created:function(){
+            //向后端发起请求获取当前session对象 获取当前登录的用户名
+            axios.get("/welcomeName/select").then(function (response){
+                //由于span不支持双向绑定 所以将后端返回的数据传到数组里
+                v.arr.push(response.data)
 
-
+            })
+        }
+    })
+</script>
 </body>
 
 </html>
