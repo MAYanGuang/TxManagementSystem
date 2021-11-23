@@ -1,12 +1,9 @@
 package com.example.mybaitsspringboot.Service;
 
-import com.example.mybaitsspringboot.Entity.User;
-import com.example.mybaitsspringboot.Mapper.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * @author: MA

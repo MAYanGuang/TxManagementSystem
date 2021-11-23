@@ -1,4 +1,4 @@
-package com.example.mybaitsspringboot.Entity;
+package com.example.mybaitsspringboot.Do;
 
 
 import com.baomidou.mybatisplus.annotation.TableField;

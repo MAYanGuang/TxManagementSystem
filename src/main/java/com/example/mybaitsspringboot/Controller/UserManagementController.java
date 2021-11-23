@@ -1,7 +1,7 @@
 package com.example.mybaitsspringboot.Controller;
 
-import com.example.mybaitsspringboot.Entity.User;
-import com.example.mybaitsspringboot.Mapper.UserDao;
+import com.example.mybaitsspringboot.Do.User;
+import com.example.mybaitsspringboot.Dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,5 +22,10 @@ public class UserManagementController {
     @RequestMapping(value = "/SelectUser")
     public List<User> selectUserAction() {
         return userDao.selectAll();
+    }
+
+    @RequestMapping(value = "/addPeopleInfo")
+    public void addPeopleInfo(){
+
     }
 }

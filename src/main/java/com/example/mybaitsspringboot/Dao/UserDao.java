@@ -1,15 +1,12 @@
-package com.example.mybaitsspringboot.Mapper;
+package com.example.mybaitsspringboot.Dao;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.mybaitsspringboot.Entity.User;
+import com.example.mybaitsspringboot.Do.User;
 
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

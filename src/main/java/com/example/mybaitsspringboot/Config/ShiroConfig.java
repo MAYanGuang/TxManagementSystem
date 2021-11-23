@@ -1,4 +1,4 @@
-package com.example.mybaitsspringboot.config;
+package com.example.mybaitsspringboot.Config;
 
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.session.mgt.SessionManager;

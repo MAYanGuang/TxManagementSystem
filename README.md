@@ -7,13 +7,16 @@
 - 安全框架：Apache Shiro 1.7.1
 - 视图框架：Spring MVC 
 - 持久层框架：MyBatis Plus 3.4.3.4
-- 日志管理：SLF4J 1.7、Log4j
-- 页面交互：Vue2.x
+- 日志管理：Log4j
+- 页面交互：Vue + Element UI
 
 ##软件需求
-- JDK1.8
-- MySQL5.5+
-- Maven3.0+
+- JDK 1.8
+- MySQL 8.0.26
+- Maven 3.6.3
+
+##本项目分层领域模型规约参考阿里JAVA开发手册规范
+> ![images/alijava.png](images/alijava.png)
 
 # 项目初期功能实现图
 > ![images/2.png](images/2.png)

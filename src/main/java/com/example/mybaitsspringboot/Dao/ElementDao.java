@@ -1,7 +1,7 @@
-package com.example.mybaitsspringboot.Mapper;
+package com.example.mybaitsspringboot.Dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.mybaitsspringboot.Entity.Element;
+import com.example.mybaitsspringboot.Do.Element;
 
 /**
  * @author: MA

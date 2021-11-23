@@ -1,24 +1,19 @@
 package com.example.mybaitsspringboot.Controller;
 
-import com.example.mybaitsspringboot.Entity.User;
-import com.example.mybaitsspringboot.Mapper.UserDao;
+import com.example.mybaitsspringboot.Dao.UserDao;
 import com.example.mybaitsspringboot.Service.UserServiceImpl;
 import com.example.mybaitsspringboot.Untils.RandomValidateCodeUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.realm.SimpleAccountRealm;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 /**
  * @author: MA

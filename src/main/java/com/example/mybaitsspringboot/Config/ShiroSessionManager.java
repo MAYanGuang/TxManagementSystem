@@ -1,4 +1,4 @@
-package com.example.mybaitsspringboot.config;
+package com.example.mybaitsspringboot.Config;
 
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;

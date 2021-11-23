@@ -1,7 +1,7 @@
-package com.example.mybaitsspringboot.Mapper;
+package com.example.mybaitsspringboot.Dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.mybaitsspringboot.Entity.Authority;
+import com.example.mybaitsspringboot.Do.Authority;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

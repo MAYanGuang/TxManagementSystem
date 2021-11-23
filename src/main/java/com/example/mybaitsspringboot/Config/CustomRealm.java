@@ -1,10 +1,10 @@
-package com.example.mybaitsspringboot.config;
+package com.example.mybaitsspringboot.Config;
 
 
-import com.example.mybaitsspringboot.Entity.User;
-import com.example.mybaitsspringboot.Mapper.AuthorityDao;
-import com.example.mybaitsspringboot.Mapper.RoleDao;
-import com.example.mybaitsspringboot.Mapper.UserDao;
+import com.example.mybaitsspringboot.Do.User;
+import com.example.mybaitsspringboot.Dao.AuthorityDao;
+import com.example.mybaitsspringboot.Dao.RoleDao;
+import com.example.mybaitsspringboot.Dao.UserDao;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
