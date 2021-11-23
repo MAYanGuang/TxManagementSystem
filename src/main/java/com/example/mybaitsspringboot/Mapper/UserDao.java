@@ -19,7 +19,11 @@ import java.util.List;
  */
 @Mapper
 public interface UserDao extends BaseMapper<User> {
+
     @Select("select * from user where name=#{name}")
     User selectByName(String name);
+
+    @Select("select * from user")
+    List<User> selectAll();
 
 }

@@ -3,6 +3,7 @@ package com.example.mybaitsspringboot.Entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 /**
  * @author: MA
@@ -11,35 +12,13 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * 菜单表
  * 控制个人中心有哪些功能
  */
+@Data
 @TableName
 public class Menu {
     @TableId
-    private int menuId;
-    private String menuName;
-    private String menuUrl;
+    private int menu_id;
+    private String menu_name;
+    private String menu_url;
 
 
-    public int getMenuId() {
-        return menuId;
-    }
-
-    public void setMenuId(int menuId) {
-        this.menuId = menuId;
-    }
-
-    public String getMenuName() {
-        return menuName;
-    }
-
-    public void setMenuName(String menuName) {
-        this.menuName = menuName;
-    }
-
-    public String getMenuUrl() {
-        return menuUrl;
-    }
-
-    public void setMenuUrl(String menuUrl) {
-        this.menuUrl = menuUrl;
-    }
 }

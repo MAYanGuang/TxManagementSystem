@@ -18,6 +18,10 @@
 </head>
 
 <body>
+<!--引入vue框架-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!--引入axios框架-->
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
 <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
     <div class="nano">
@@ -29,7 +33,7 @@
                 <li class="label">菜单栏</li>
                 <li>
                     <ul>
-                        <li><a href="user management.html">用户管理</a></li>
+                        <li><a href="UserManagement.html">用户管理</a></li>
                         <li><a href="index.html">角色管理</a></li>
                         <li><a href="personal center.html">个人中心</a></li>
                         <li><a href="divisional management.html">部门管理</a></li>
@@ -45,8 +49,8 @@
 </div>
 <!-- /# sidebar -->
 
-</div>
-</div>
+
+
 
 
 <div class="content-wrap">
@@ -92,6 +96,22 @@
 <!-- scripit init-->
 <script src="/js/dashboard2.js"></script>
 
+<script>
+    let v = new Vue({
+        el:"#showuser",
+        data:{
+            arr:[]
+        },
+        created:function () {
+
+            axios.get("/SelectUser").then(function (response) {
+                v.arr = response.data;
+
+            })
+
+        }
+    })
+</script>
 
 </body>
 

@@ -3,6 +3,7 @@ package com.example.mybaitsspringboot.Entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 /**
  * @author: MA
@@ -11,26 +12,13 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * 部门表
  * 存放部门id 部门信息
  */
+@Data
 @TableName
 public class Department {
     @TableId
-    private int departmentId;
-    private String departmentName;
+    private int department_id;
+    private String department_name;
 
 
-    public int getDepartmentId() {
-        return departmentId;
-    }
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDepartmentName() {
-        return departmentName;
-    }
-
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
-    }
 }
