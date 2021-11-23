@@ -3,6 +3,7 @@ package com.example.mybaitsspringboot.Entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 /**
  * @author: MA
@@ -10,37 +11,16 @@ import com.baomidou.mybatisplus.annotation.TableName;
  *
  * 文件管理表
  */
+@Data
 @TableName
 public class AdminFile {
     @TableId
-    private int fileId;
+    private int AdminFile_id;
 
-    private String fileName;
+    private String AdminFile_name;
 
-    private String filePath;
+    private String AdminFile_path;
 
 
-    public int getFileId() {
-        return fileId;
-    }
 
-    public void setFileId(int fileId) {
-        this.fileId = fileId;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
 }

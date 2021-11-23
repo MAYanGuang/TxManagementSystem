@@ -3,6 +3,7 @@ package com.example.mybaitsspringboot.Entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 /**
  * @author: MA
@@ -10,25 +11,12 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * <p>
  * 权限表
  */
+@Data
 @TableName
 public class Authority {
     @TableId
-    private int authorityId;
-    private String authorityKind;
+    private int authority_id;
+    private String authority_kind;
 
-    public int getAuthorityId() {
-        return authorityId;
-    }
 
-    public void setAuthorityId(int authorityId) {
-        this.authorityId = authorityId;
-    }
-
-    public String getAuthorityKind() {
-        return authorityKind;
-    }
-
-    public void setAuthorityKind(String authorityKind) {
-        this.authorityKind = authorityKind;
-    }
 }

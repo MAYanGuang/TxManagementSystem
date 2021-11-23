@@ -23,6 +23,8 @@ import java.util.Map;
 /**
  * @author: MA
  * @Date: 2021/11/17 14:46
+ *
+ * 处理登录的控制器
  */
 @RestController
 public class LoginController {
