@@ -2,8 +2,9 @@ package com.example.mybaitsspringboot.config;
 
 
 import com.example.mybaitsspringboot.Entity.User;
+import com.example.mybaitsspringboot.Mapper.AuthorityDao;
+import com.example.mybaitsspringboot.Mapper.RoleDao;
 import com.example.mybaitsspringboot.Mapper.UserDao;
-import com.example.mybaitsspringboot.Service.UserServiceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -15,46 +16,61 @@ import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
  * 自定义 shiro Realm
+ *
  * @Author: chenping
  * @Date: 2019/8/18
  */
 public class CustomRealm extends AuthorizingRealm {
 
     @Autowired(required = false)
-    UserDao userService;
+    UserDao userDao;
+
+    @Autowired(required = false)
+    AuthorityDao authorityDao;
+
+    @Autowired(required = false)
+    RoleDao roleDao;
+
     /**
      * 授权   登陆后（认证通过后）访问某个功能或者菜单做授权
+     *
      * @param principalCollection
      * @return
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-//        //获取用户名
-//        String userName = (String) principalCollection.getPrimaryPrincipal();
-//        //根据用户名查询角色信息
-//        Set<String> roles = getRoleByUserName(userName);
-//        Set<String> permissions = getPermissionsByUserName(userName);
-//
-//        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-//        simpleAuthorizationInfo.setRoles(roles);
-//        simpleAuthorizationInfo.setStringPermissions(permissions);
-//        return simpleAuthorizationInfo;
+        //获取用户名
+        String userName = (String) principalCollection.getPrimaryPrincipal();
+        //根据用户名查询角色信息
+        User user = userDao.selectByName(userName);
+        //得到该用户所有角色名称
+        Set<String> roles = roleDao.selectRole_namesByUserId(user.getId());
+        //得到该用户所有权限
+        //此处一层子查询
+        Set<String> authorityNames = authorityDao.selectAuthorityNameByRoleId(roleDao.selectRole_idsByUserId(user.getId()));
+        //授权对象
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        //放入角色信息
+        simpleAuthorizationInfo.setRoles(roles);
+        //放入权限信息
+        simpleAuthorizationInfo.setStringPermissions(authorityNames);
+        //返回该授权对象
+        return simpleAuthorizationInfo;
 
-        return null;
+
     }
-
 
 
     /**
      * 认证--- 首次登陆的时候做认证操作
      * 用户名、密码
+     *
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
@@ -64,20 +80,17 @@ public class CustomRealm extends AuthorizingRealm {
         //从主体传递的认证信息中获取用户名
         String userName = (String) authenticationToken.getPrincipal();
         String password = new String((char[]) authenticationToken.getCredentials());
-
-        System.out.println("------------"+password);
-
         //通过用户名去数据库获取用户信息
         User user = null;
         try {
-            user = userService.selectByName(userName);
+            user = userDao.selectByName(userName);
         } catch (NullPointerException e) {
             throw new UnknownAccountException();
         }
 
 
         if (!password.equals(user.getPassword())) {
-            System.out.println("5555555555");
+
             throw new IncorrectCredentialsException();
         }
         String realName = this.getName();
@@ -98,13 +111,13 @@ public class CustomRealm extends AuthorizingRealm {
                 }
             }
         }
-        System.out.println("userName"+userName+"11110"+realName);
+        System.out.println("userName" + userName + "11110" + realName);
         SimpleAuthenticationInfo simpleAccountRealm =
                 new SimpleAuthenticationInfo(
                         userName,
                         user.getPassword(),
                         realName);
-        System.out.println("token独享"+authenticationToken);
+        System.out.println("token独享" + authenticationToken);
         /**
          * 保存登陆认证后的信息session值
          */

@@ -17,9 +17,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired(required = false)
     UserService userService;
-    @Autowired(required = false)
-    UserDao userDao;
-
 
     @Override
     public boolean checkVerify(String code, HttpSession session) {

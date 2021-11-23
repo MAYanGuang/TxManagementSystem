@@ -1,7 +1,5 @@
 //package com.example.mybaitsspringboot.config;
 //
-//import com.example.shiro.shiroexample.entity.User;
-//import com.example.shiro.shiroexample.enums.SessionConst;
 //import org.apache.shiro.SecurityUtils;
 //import org.apache.shiro.session.Session;
 //import org.apache.shiro.subject.Subject;
