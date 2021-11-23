@@ -88,7 +88,8 @@ public class LoginController {
             subject.login(token);
 
             System.out.println("用户认证的状态：isAuthenticated=" + subject.isAuthenticated());
-
+            /*当用户登录成功时,会将当前用户名存入session对象*/
+            session.setAttribute("user", name);
             return 4;
         } catch (IncorrectCredentialsException exception) {
             System.out.println("用户名密码不匹配");
@@ -105,6 +106,15 @@ public class LoginController {
         }
 
 
+    }
+    /*
+    用户通过登录进到首页时会向这里发起请求 这个请求通过获取session对象
+    用于返回当前登录的用户名
+    */
+    @RequestMapping("/welcomeName/select")
+    public String welcomeName(HttpSession session ){
+        System.out.println((String) session.getAttribute("user"));
+        return  (String) session.getAttribute("user");
     }
 
 }
