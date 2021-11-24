@@ -9,7 +9,7 @@ package com.example.mybaitsspringboot.Vo;
  * VO主要的存在形式就是js里面的对象（也可以简单理解成json）
  * 注：在展示业务不复杂的系统，可直接使用DTO
  */
-public class ShowAllUser {
+public class ShowAllUserVo {
     private int id;
 
     private String name;

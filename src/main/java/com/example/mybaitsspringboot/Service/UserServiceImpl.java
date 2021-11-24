@@ -1,20 +1,23 @@
 package com.example.mybaitsspringboot.Service;
-
+import com.example.mybaitsspringboot.Bo.AddUserBo;
+import com.example.mybaitsspringboot.Bo.BoToDo;
+import com.example.mybaitsspringboot.Dao.UserDao;
+import com.example.mybaitsspringboot.Do.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.servlet.http.HttpSession;
-
 /**
  * @author: MA
  * @Date: 2021/11/18 16:35
  */
 @Service
 public class UserServiceImpl implements UserService {
-
     @Autowired(required = false)
     UserService userService;
-
+    @Autowired(required = false)
+    UserDao userDao;
+    @Autowired(required = false)
+    BoToDo boToDo;
     @Override
     public boolean checkVerify(String code, HttpSession session) {
         try {
@@ -35,7 +38,14 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
-
+    @Override
+    public void addUser(AddUserBo userBo) {
+        User user = BoToDo.INSTANCE.toDoUser(userBo);
+//        Role role = BoToDo.INSTANCE.toDoRole(userBo);
+//        Authority authority = BoToDo.INSTANCE.toDoAuthority(userBo);
+//        Department department = BoToDo.INSTANCE.toDoDepartment(userBo);
+        userDao.insertUser(user);
+    }
 
 
 }

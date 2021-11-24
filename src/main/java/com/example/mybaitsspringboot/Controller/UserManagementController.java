@@ -19,13 +19,20 @@ public class UserManagementController {
     @Autowired
     UserDao userDao;
 
+    /**
+     * 查询所有用户
+     * @return List<ShowAllUserVo>
+     */
     @RequestMapping(value = "/SelectUser")
     public List<User> selectUserAction() {
+        for (User user:userDao.selectAll()){
+            System.out.println(user);
+        }
         return userDao.selectAll();
     }
 
-    @RequestMapping(value = "/addPeopleInfo")
-    public void addPeopleInfo(){
-
-    }
+//    @RequestMapping(value = "/addPeopleInfo")
+//    public String addPeopleInfo(AddUserBo userBo){
+//
+//    }
 }

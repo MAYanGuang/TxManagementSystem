@@ -2,6 +2,8 @@ package com.example.mybaitsspringboot.Service;
 
 
 
+import com.example.mybaitsspringboot.Bo.AddUserBo;
+
 import javax.servlet.http.HttpSession;
 
 /**
@@ -15,7 +17,14 @@ public interface UserService  {
      * @param session
      * @return
      */
-    public boolean checkVerify(String code, HttpSession session);
+     boolean checkVerify(String code, HttpSession session);
+
+    /**
+     *添加用户
+     * @param userBo  添加用户业务逻辑对象
+     * 在此处将添加的用户各个属性分配到对应数据库表中
+     */
+     void  addUser(AddUserBo userBo);
 
 
 

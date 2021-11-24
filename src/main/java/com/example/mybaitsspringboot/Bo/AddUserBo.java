@@ -1,5 +1,6 @@
 package com.example.mybaitsspringboot.Bo;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -14,10 +15,11 @@ import lombok.Data;
  * 很多情况下为了追求查询的效率，框架跳过PO直接生成BO的情况非常普遍，PO只是用来增删改使用。
  */
 @Data
-public class AddUser {
+@Builder
+public class AddUserBo {
     private String name;
     private String nickname;
-    private String department_name;
+
     private String phone_number;
     private String email;
     private String password;
@@ -27,6 +29,8 @@ public class AddUser {
     private String state;
     // 角色
     private String role_name;
+    // 部门名称
+    private String department_name;
     // 权限种类/岗位
-    private String authority_king;
+    private String authority_kind;
 }

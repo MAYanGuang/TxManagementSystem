@@ -49,5 +49,7 @@ public class User {
 
     private String create_time;
 
+    private String update_time;
+
 
 }

@@ -10,12 +10,12 @@
 - 日志管理：Log4j
 - 页面交互：Vue + Element UI
 
-##软件需求
+#软件需求
 - JDK 1.8
 - MySQL 8.0.26
 - Maven 3.6.3
 
-##本项目分层领域模型规约参考阿里JAVA开发手册规范
+#本项目分层领域模型规约参考阿里JAVA开发手册规范
 > ![images/alijava.png](images/alijava.png)
 
 # 项目初期功能实现图
