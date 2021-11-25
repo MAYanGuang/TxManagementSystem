@@ -31,7 +31,8 @@ public interface BoToDo {
     @Mappings({
             @Mapping(target = "id", ignore = true),
             @Mapping(target = "update_time",ignore = true),
-            @Mapping(target = "create_time", ignore = true)
+            @Mapping(target = "create_time", ignore = true),
+            @Mapping(target = "image_path", ignore = true)
     })
     User toDoUser(AddUserBo addUserBo);
 

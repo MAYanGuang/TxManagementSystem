@@ -38,7 +38,7 @@ public interface UserDao extends BaseMapper<User> {
      */
     @Insert("insert into user values" +
             "(null,#{name},#{password},#{nickname}," +
-            "#{gender},#{state},#{phone_number},#{emaile},now(),now())")
+            "#{gender},#{state},#{phone_number},#{email},now(),now(),null)")
     void insertUser(User user);
 
 }

@@ -51,5 +51,7 @@ public class User {
 
     private String update_time;
 
+    private String image_path;
+
 
 }

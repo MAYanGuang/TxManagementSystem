@@ -1,18 +1,3 @@
-create table user
-(
-    id       int auto_increment,
-    name     varchar(255) not null,
-    password varchar(255) not null,
-    constraint user_id_uindex
-        unique (id)
-);
-
-alter table user
-    add primary key (id);
-
-INSERT INTO backstagemanagement.user (id, name, password)
-VALUES (1, 'admin', 'admin');
-
 create table role
 (
     role_id   int         not null
@@ -20,7 +5,8 @@ create table role
     role_name varchar(20) not null
 );
 
-INSERT INTO backstagemanagement.role (role_id, role_name) VALUES (1, 'superadmin');
+INSERT INTO backstagemanagement.role (role_id, role_name)
+VALUES (1, 'superadmin');
 
 create table operate
 (
@@ -66,7 +52,8 @@ create table user_role
     role_id int null
 );
 
-INSERT INTO backstagemanagement.user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO backstagemanagement.user_role (user_id, role_id)
+VALUES (1, 1);
 create table user_department
 (
     user_id       int null,
@@ -111,8 +98,6 @@ create table authority_element
 
 
 
-
-
 create table element
 (
     Element_id   int         not null
@@ -120,4 +105,32 @@ create table element
     Element_code varchar(30) not null
 );
 
+
+
+
+drop table if exists user;
+create table user
+(
+    id           int auto_increment,
+    name         varchar(255) not null,
+    password     varchar(255) not null,
+    nickname     varchar(20)  not null,
+    gender       varchar(2)   null,
+    state        varchar(10)  not null,
+    phone_number varchar(15)  null,
+    email        varchar(30)  null,
+    create_time  varchar(30)  not null,
+    update_time  varchar(30)  null,
+    image_path   varchar(50)  null,
+    constraint user_id_uindex
+        unique (id)
+);
+
+alter table user
+    add primary key (id);
+
+INSERT INTO backstagemanagement.user (id, name, password, nickname, gender, state, phone_number, email, create_time,
+                                      update_time, image_path)
+VALUES (1, 'admin', 'admin', 'myself', '男', '启用', '13983056858', '1311140940@qq.com', '2021-11-25 10:12:22',
+        '2021-11-25 10:12:22', null);
 
