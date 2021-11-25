@@ -3,6 +3,7 @@ package com.example.mybaitsspringboot.Dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.mybaitsspringboot.Do.Department;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * @author: MA

@@ -22,16 +22,15 @@ public class MybaitsSpringBootApplicationTests {
     @Test
     public void kkkk() {
         AddUserBo addUserBo = AddUserBo.builder()
-                .authority_kind("admin")
-                .name("myg")
-                .nickname("~~")
-                .phone_number("15158181")
-                .email("13111@qq.com")
-                .password("111")
+                .name("admin")
+                .nickname("嘻嘻嘻")
+                .phone_number("13983056858")
+                .email("1311140940@qq.com")
+                .password("admin")
                 .gender("男")
                 .state("启用")
-                .role_name("超级管理员")
-                .department_name("人事")
+                .role_id(1)
+                .department_id(1)
                 .build();
 
        userService.addUser(addUserBo);

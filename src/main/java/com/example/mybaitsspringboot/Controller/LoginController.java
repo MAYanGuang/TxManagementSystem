@@ -30,7 +30,7 @@ public class LoginController {
     private UserServiceImpl userServiceImpl;
 
     @RequestMapping(value = "/CheckUserRepeat")
-    public String CheckUserRepeat(@Param(value = "name") String uName) {
+    public String checkUserRepeat(@Param(value = "name") String uName) {
         //后续考虑到该项目作为管理系统 不该由用户自行注册 应由管理员分配账号设置权限
         //因此这里暂时搁置
         //这里不做session以及Shiro安全框架的验证,因为这里只单纯比较是否用户名已存在
@@ -64,26 +64,29 @@ public class LoginController {
         }
     }
 
+    /**
+     *  登陆业务
+     * @param name
+     * @param pwd
+     * @param check
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/login")
     public int Login(String name,
                      String pwd,
                      String check,
                      HttpSession session) {
         if (!userServiceImpl.checkVerify(check, session)) {
-            System.out.println("验证码错误");
             return 5;
         }
-
-
         //获取用户输入的用户名密码 生成token命令
         UsernamePasswordToken token = new UsernamePasswordToken(name, pwd);
-
         //获取主体
         Subject subject = SecurityUtils.getSubject();
         try {
             //进行登入(提交认证)
             subject.login(token);
-
             System.out.println("用户认证的状态：isAuthenticated=" + subject.isAuthenticated());
             /*当用户登录成功时,会将当前用户名存入session对象*/
             session.setAttribute("user", name);

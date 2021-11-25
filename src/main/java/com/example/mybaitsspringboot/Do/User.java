@@ -1,4 +1,5 @@
 package com.example.mybaitsspringboot.Do;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -30,7 +31,8 @@ import lombok.Data;
 public class User {
 
     @TableId
-    private int id;
+    @TableField(value = "user_id")
+    private int userId;
 
     private String name;
 
@@ -38,20 +40,23 @@ public class User {
 
     private String password;
 
-    //性别
     private String gender;
-    //账号状态
+
     private String state;
 
-    private String phone_number;
+    @TableField(value = "phone_number")
+    private String phoneNumber;
 
     private String email;
 
-    private String create_time;
+    @TableField(value = "create_time")
+    private String createTime;
 
-    private String update_time;
+    @TableField(value = "update_time")
+    private String updateTime;
 
-    private String image_path;
+    @TableField(value = "image_path")
+    private String imagePath;
 
 
 }

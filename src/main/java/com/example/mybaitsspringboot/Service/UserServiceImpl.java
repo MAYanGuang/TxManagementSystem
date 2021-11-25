@@ -1,26 +1,34 @@
 package com.example.mybaitsspringboot.Service;
+
 import com.example.mybaitsspringboot.Bo.AddUserBo;
 import com.example.mybaitsspringboot.Bo.BoToDo;
-import com.example.mybaitsspringboot.Dao.UserDao;
-import com.example.mybaitsspringboot.Do.Authority;
-import com.example.mybaitsspringboot.Do.Department;
-import com.example.mybaitsspringboot.Do.Role;
-import com.example.mybaitsspringboot.Do.User;
+import com.example.mybaitsspringboot.Dao.*;
+import com.example.mybaitsspringboot.Do.*;
+import com.example.mybaitsspringboot.Vo.DoToVo;
+import com.example.mybaitsspringboot.Vo.ShowAllUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.servlet.http.HttpSession;
+import java.util.List;
+
 /**
  * @author: MA
  * @Date: 2021/11/18 16:35
  */
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired(required = false)
-    UserService userService;
-    @Autowired(required = false)
+    @Autowired
     UserDao userDao;
-    @Autowired(required = false)
-    BoToDo boToDo;
+    @Autowired
+    User_RoleDao userRoleDao;
+    @Autowired
+    User_DepartmentDao userDepartmentDao;
+    @Autowired
+    DepartmentDao departmentDao;
+    @Autowired
+    RoleDao roleDao;
+
     @Override
     public boolean checkVerify(String code, HttpSession session) {
         try {
@@ -29,29 +37,38 @@ public class UserServiceImpl implements UserService {
             if (random == null) {
                 return false;
             }
-            if (random.equals(code)) {
-                System.out.println("正确的验证码");
-                return true;
-            } else {
-                System.out.println("错误的验证码");
-                return false;
-            }
+            return random.equals(code);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
+
     @Override
     public void addUser(AddUserBo userBo) {
+
         //将用户信息添加到用户表 添加后用户表产生自增的id,创建时间,更新时间
         User user = BoToDo.INSTANCE.toDoUser(userBo);
+        userDao.insert(user);
         //查询出用户id,方便关联表
-        int id = userDao.selectByName(user.getName()).getId();
+        int id = userDao.selectByName(user.getName()).getUserId();
+
+        //将查询出的用户id放入关联表User_Role
+        UserRole userRole = BoToDo.INSTANCE.toDoRole(userBo);
+        userRole.setUserId(id);
+        userRoleDao.insert(userRole);
 
 
-        Authority authority = BoToDo.INSTANCE.toDoAuthority(userBo);
-        Department department = BoToDo.INSTANCE.toDoDepartment(userBo);
-        userDao.insertUser(user);
+        //将查询出的用户id放入关联表User_Department
+        UserDepartment userDepartment = BoToDo.INSTANCE.toDoDepartment(userBo);
+        userDepartment.setUserId(id);
+        userDepartmentDao.insert(userDepartment);
+
+    }
+
+    @Override
+    public List<ShowAllUserVo> showUsers() {
+      return null;
     }
 
 

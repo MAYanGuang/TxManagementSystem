@@ -1,5 +1,8 @@
 package com.example.mybaitsspringboot.Vo;
 
+import lombok.Data;
+
+
 /**
  * @author: MA
  * @Date: 2021/11/24 19:05
@@ -9,6 +12,7 @@ package com.example.mybaitsspringboot.Vo;
  * VO主要的存在形式就是js里面的对象（也可以简单理解成json）
  * 注：在展示业务不复杂的系统，可直接使用DTO
  */
+@Data
 public class ShowAllUserVo {
     private int id;
 
@@ -21,6 +25,6 @@ public class ShowAllUserVo {
     private String phone_number;
 
     private String create_time;
-    //账号状态
+
     private String state;
 }

@@ -19,18 +19,12 @@ import lombok.Data;
 public class AddUserBo {
     private String name;
     private String nickname;
-
-    private String phone_number;
+    private String phoneNumber;
     private String email;
     private String password;
-    // 性别
     private String gender;
-    // 账号状态
     private String state;
-    // 角色
-    private String role_name;
-    // 部门名称
-    private String department_name;
-    // 权限种类/岗位
-    private String authority_kind;
+    private int roleId;
+    private int departmentId;
+
 }
