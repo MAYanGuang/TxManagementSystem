@@ -20,7 +20,8 @@ import java.util.List;
 public interface UserDao extends BaseMapper<User> {
     /**
      * 通过名字找对应用户
-     * @param name  name
+     *
+     * @param name name
      * @return User
      */
     @Select("select * from user where name=#{name}")
@@ -28,9 +29,10 @@ public interface UserDao extends BaseMapper<User> {
 
     /**
      * 查询所有用户信息 +对应 部门名
-     * @return   List<User>
+     *
+     * @return List<User>
      */
-    @Select("select  u.user_id, d.Department_name, u.name, u.nickname, u.phone_number, u.state, u.create_time\n" +
+    @Select("select u.user_id, d.Department_name, u.name, u.nickname, u.phone_number, u.state, u.create_time\n" +
             "from user as u ,\n" +
             "     department as d\n" +
             "where d.Department_id in\n" +
@@ -44,6 +46,7 @@ public interface UserDao extends BaseMapper<User> {
 
     /**
      * 添加用户
+     *
      * @param user UserDo
      */
     @Insert("insert into user values" +
