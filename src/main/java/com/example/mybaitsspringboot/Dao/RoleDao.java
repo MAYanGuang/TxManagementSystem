@@ -23,7 +23,7 @@ public interface RoleDao extends BaseMapper<Role> {
      */
     @Select("select role_name form role where role_id in" +
             "(select role_id form user_role where user_id=#{user_id})")
-    Set<String> selectRole_namesByUserId(@Param("user_id")Integer userId);
+    Set<String> selectRoleNamesByUserId(@Param("user_id")Integer userId);
     /**
      * 通过用户id查询对应的所有角色id
      *
@@ -32,7 +32,7 @@ public interface RoleDao extends BaseMapper<Role> {
      */
     @Select("select role_id form role where role_id in" +
             "(select role_id form user_role where user_id=#{user_id})")
-    Set<Integer> selectRole_idsByUserId(@Param("user_id")Integer userId);
+    Set<Integer> selectRoleIdsByUserId(@Param("user_id")Integer userId);
 
 
 }

@@ -27,6 +27,7 @@ public class UserManagementController {
 
     /**
      * 查询所有用户
+     *
      * @return List<ShowAllUserVo>
      */
     @RequestMapping(value = "/SelectUser")
@@ -35,7 +36,7 @@ public class UserManagementController {
     }
 
     @RequestMapping(value = "/addPeopleInfo")
-    public String addPeopleInfo(AddUserBo userBo){
+    public String addPeopleInfo(AddUserBo userBo) {
         try {
             userService.addUser(userBo);
         } catch (Exception e) {

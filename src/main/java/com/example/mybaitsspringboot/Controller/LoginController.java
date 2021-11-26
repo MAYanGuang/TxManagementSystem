@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 /**
  * @author: MA
  * @Date: 2021/11/17 14:46
- *
+ * <p>
  * 处理登录的控制器
  */
 @RestController
@@ -44,8 +44,8 @@ public class LoginController {
     /**
      * 验证码
      *
-     * @param request
-     * @param response
+     * @param request  请求
+     * @param response 响应
      */
     @RequestMapping(value = "/getVerify")
     public void getVerify(HttpServletRequest request, HttpServletResponse response) {
@@ -65,12 +65,13 @@ public class LoginController {
     }
 
     /**
-     *  登陆业务
-     * @param name
-     * @param pwd
-     * @param check
-     * @param session
-     * @return
+     * 登陆业务
+     *
+     * @param name    User表对应name
+     * @param pwd     User表对应password
+     * @param check   验证码
+     * @param session session
+     * @return int对应前端响应代码
      */
     @RequestMapping(value = "/login")
     public int Login(String name,
@@ -107,14 +108,17 @@ public class LoginController {
 
 
     }
-    /*
-    用户通过登录进到首页时会向这里发起请求 这个请求通过获取session对象
-    用于返回当前登录的用户名
-    */
+
+    /**
+     * 用户通过登录进到首页时会向这里发起请求 这个请求通过获取session对象
+     *
+     * @param session session
+     * @return 用于返回当前登录的用户名
+     */
     @RequestMapping("/welcomeName/select")
-    public String welcomeName(HttpSession session ){
+    public String welcomeName(HttpSession session) {
         System.out.println((String) session.getAttribute("user"));
-        return  (String) session.getAttribute("user");
+        return (String) session.getAttribute("user");
     }
 
 }
