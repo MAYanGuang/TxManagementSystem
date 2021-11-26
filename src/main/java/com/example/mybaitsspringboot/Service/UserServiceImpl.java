@@ -4,7 +4,6 @@ import com.example.mybaitsspringboot.Bo.AddUserBo;
 import com.example.mybaitsspringboot.Bo.BoToDo;
 import com.example.mybaitsspringboot.Dao.*;
 import com.example.mybaitsspringboot.Do.*;
-import com.example.mybaitsspringboot.Vo.DoToVo;
 import com.example.mybaitsspringboot.Vo.ShowAllUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,9 +20,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao;
     @Autowired
-    User_RoleDao userRoleDao;
+    UserRoleDao userRoleDao;
     @Autowired
-    User_DepartmentDao userDepartmentDao;
+    UserDepartmentDao userDepartmentDao;
     @Autowired
     DepartmentDao departmentDao;
     @Autowired
@@ -46,10 +45,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(AddUserBo userBo) {
-
         //将用户信息添加到用户表 添加后用户表产生自增的id,创建时间,更新时间
         User user = BoToDo.INSTANCE.toDoUser(userBo);
-        userDao.insert(user);
+        userDao.insertUser(user);
+
         //查询出用户id,方便关联表
         int id = userDao.selectByName(user.getName()).getUserId();
 

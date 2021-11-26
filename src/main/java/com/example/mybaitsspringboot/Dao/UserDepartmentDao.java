@@ -9,5 +9,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @Date: 2021/11/25 22:31
  */
 @Mapper
-public interface User_DepartmentDao extends BaseMapper<UserDepartment> {
+public interface UserDepartmentDao extends BaseMapper<UserDepartment> {
 }

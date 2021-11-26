@@ -1,6 +1,7 @@
 package com.example.mybaitsspringboot.Do;
 
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -15,11 +16,12 @@ import lombok.Data;
 @TableName
 public class AdminFile {
     @TableId
-    private int AdminFile_id;
-
-    private String AdminFile_name;
-
-    private String AdminFile_path;
+    @TableField(value = "AdminFile_id")
+    private int adminFileId;
+    @TableField(value = "AdminFile_name")
+    private String adminFileName;
+    @TableField(value = "AdminFile_path")
+    private String adminFilePath;
 
 
 

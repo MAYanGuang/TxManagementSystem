@@ -1,6 +1,7 @@
 package com.example.mybaitsspringboot.Do;
 
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -16,9 +17,12 @@ import lombok.Data;
 @TableName
 public class Menu {
     @TableId
-    private int menu_id;
-    private String menu_name;
-    private String menu_url;
+    @TableField(value = "menu_id")
+    private int menuId;
+    @TableField(value = "menu_name")
+    private String menuName;
+    @TableField(value = "menu_url")
+    private String menuUrl;
 
 
 }

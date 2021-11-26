@@ -1,27 +1,18 @@
 package com.example.mybaitsspringboot.Do;
 
-
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
  * @author: MA
- * @Date: 2021/11/19 15:19
- *
- * 部门表
- * 存放部门id 部门信息
+ * @Date: 2021/11/25 21:44
  */
 @Data
-@TableName
-public class Department {
+public class UserDepartment {
     @TableId
     @TableField(value = "department_id")
     private int departmentId;
-    @TableField(value = "department_name")
-    private String departmentName;
-
-
-
+    @TableField(value = "user_id")
+    private int userId;
 }

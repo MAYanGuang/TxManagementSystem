@@ -19,21 +19,6 @@ public class MybaitsSpringBootApplicationTests {
     public  void setUserDao(){
         System.out.println(userDao.selectAll());
     }
-    @Test
-    public void kkkk() {
-        AddUserBo addUserBo = AddUserBo.builder()
-                .name("admin")
-                .nickname("嘻嘻嘻")
-                .phone_number("13983056858")
-                .email("1311140940@qq.com")
-                .password("admin")
-                .gender("男")
-                .state("启用")
-                .role_id(1)
-                .department_id(1)
-                .build();
 
-       userService.addUser(addUserBo);
-    }
 }
 

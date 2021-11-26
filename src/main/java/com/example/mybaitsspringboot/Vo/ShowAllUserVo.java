@@ -1,12 +1,14 @@
 package com.example.mybaitsspringboot.Vo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 
 /**
  * @author: MA
  * @Date: 2021/11/24 19:05
- *
+ * <p>
  * VO   Value Object  值对象
  * VO就是展示用的数据，不管展示方式是网页，还是客户端，还是APP，只要是这个东西是让人看到的，这就叫VO
  * VO主要的存在形式就是js里面的对象（也可以简单理解成json）
@@ -14,17 +16,16 @@ import lombok.Data;
  */
 @Data
 public class ShowAllUserVo {
-    private int id;
-
+    @TableId
+    @TableField(value = "user_id")
+    private int userId;
     private String name;
-
     private String nickname;
-
-    private String department_name;
-
-    private String phone_number;
-
-    private String create_time;
-
+    @TableField(value = "department_name")
+    private String departmentName;
+    @TableField(value = "phone_number")
+    private String phoneNumber;
+    @TableField(value = "create_time")
+    private String createTime;
     private String state;
 }

@@ -30,10 +30,10 @@ public interface BoToDo {
      * @param addUserBo 添加用户的业务逻辑对象
      * @return User
      */
-    @Mappings({@Mapping(target = "user_id", ignore = true),
-            @Mapping(target = "update_time",ignore = true),
-            @Mapping(target = "create_time", ignore = true),
-            @Mapping(target = "image_path", ignore = true)})
+    @Mappings({@Mapping(target = "userId", ignore = true),
+            @Mapping(target = "updateTime",ignore = true),
+            @Mapping(target = "createTime", ignore = true),
+            @Mapping(target = "imagePath", ignore = true)})
     User toDoUser(AddUserBo addUserBo);
 
     /**
@@ -41,7 +41,7 @@ public interface BoToDo {
      * @param addUserBo 添加用户的业务逻辑对象
      * @return UserRole
      */
-    @Mapping(target = "user_id", ignore = true)
+    @Mapping(target = "userId", ignore = true)
     UserRole toDoRole(AddUserBo addUserBo);
 
     /**
@@ -49,7 +49,7 @@ public interface BoToDo {
      * @param addUserBo 添加用户的业务逻辑对象
      * @return UserDepartment
      */
-    @Mapping(target = "user_id", ignore = true)
+    @Mapping(target = "userId", ignore = true)
     UserDepartment toDoDepartment(AddUserBo addUserBo);
 
 }

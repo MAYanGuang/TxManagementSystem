@@ -15,6 +15,8 @@ public interface UserService {
     /**
      * 验证用户的验证码
      *
+     * @param code
+     * @param session
      * @return boolean
      */
     boolean checkVerify(String code, HttpSession session);

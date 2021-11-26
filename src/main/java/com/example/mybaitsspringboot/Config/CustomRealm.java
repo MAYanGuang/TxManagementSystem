@@ -50,10 +50,10 @@ public class CustomRealm extends AuthorizingRealm {
         //根据用户名查询角色信息
         User user = userDao.selectByName(userName);
         //得到该用户所有角色名称
-        Set<String> roles = roleDao.selectRole_namesByUserId(user.getUser_id());
+        Set<String> roles = roleDao.selectRole_namesByUserId(user.getUserId());
         //得到该用户所有权限
         //此处一层子查询
-        Set<String> authorityNames = authorityDao.selectAuthorityNameByRoleId(roleDao.selectRole_idsByUserId(user.getUser_id()));
+        Set<String> authorityNames = authorityDao.selectAuthorityNameByRoleId(roleDao.selectRole_idsByUserId(user.getUserId()));
         //授权对象
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         //放入角色信息
